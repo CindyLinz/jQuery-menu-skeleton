@@ -1,5 +1,5 @@
 /*!
- * jQuery Menu Skeleton Library v0.01
+ * jQuery Menu Skeleton Library v0.02
  * https://github.com/CindyLinz/jQuery-menu-skeleton
  *
  * Copyright 2011, Cindy Wang (CindyLinz)
@@ -33,7 +33,6 @@
 			this_offset.top += offset.top;
 			this_offset.left += offset.left;
 		    }
-		    //$('#dump').text( active_list.join(',') + '[' + this_offset.left + ',' + this_offset.top + ']' );
 		    $(child).show().offset(this_offset);
 		}
 	    });
@@ -46,4 +45,15 @@
 	return menuSkeleton;
     };
     $.fn.menuSkeleton = menuSkeleton;
+
+    $(function(){
+	$('body').live('click', function(){
+	    while(true){
+		var last = active_list.pop();
+		if( last===undefined )
+		    break;
+		$(last).hide();
+	    }
+	});
+    });
 })(jQuery)
