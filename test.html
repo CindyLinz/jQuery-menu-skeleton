@@ -1,0 +1,43 @@
+<!Doctype html>
+<html><head>
+    <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js></script>
+    <script src=jquery-menu-skeleton.js></script>
+    <style>
+	ul { border: 1px solid #999; width: 100px; background-color: #fff }
+	li { cursor: pointer }
+	#board2, #board3, #board4 { display: none }
+    </style>
+    <script>$(function(){
+	$('li').menuSkeleton('child', { left: 30, top: 10 } ).hover(function(){
+	    $(this).css('color','red').css('background-color', '#f99');
+	}, function() {
+	    $(this).css('color','').css('background-color', '');
+	});
+    })</script>
+</head><body>
+<ul id=board1>
+    <li>board1
+    <li>A
+    <li data-child=#board2>B
+    <li data-child=#board3>C
+</ul>
+<ul id=board2>
+    <li>board2
+    <li data-child=#board3>X
+    <li>Y
+    <li>Z
+</ul>
+<ul id=board3>
+    <li>board3
+    <li data-child=#board4>1
+    <li>2
+    <li data-child=#board4>3
+</ul>
+<ul id=board4>
+    <li>board4
+    <li>4
+    <li>5
+    <li>6
+</ul>
+<div id=dump></div>
+</body></html>
